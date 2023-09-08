@@ -1,0 +1,51 @@
+.body {
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+#draggableWindow {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: 150px;
+    border: 1px solid #000;
+    background-color: #fff;
+    z-index: 1000;
+    overflow: hidden;
+    resize: both;
+}
+
+.windowHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    padding: 5px;
+    cursor: move;
+}
+
+#closeWindow {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.windowContent {
+    padding: 10px;
+}
+
+.resizeHandle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    cursor: se-resize;
+}
