@@ -10,7 +10,7 @@ import BotIcon from "../icons/bot.svg";
 import LoadingIcon from "../icons/three-dots.svg";
 
 import {getCSSVar, useMobileScreen} from "../utils";
-
+import {load_popup, showPopup, hidePopup} from "@/app/components/scripts"
 import dynamic from "next/dynamic";
 import {Path, SlotID} from "../constant";
 import {ErrorBoundary} from "./error";
@@ -128,8 +128,7 @@ function Screen() {
 
     useEffect(() => {
         loadAsyncGoogleFont();
-
-        console.log(document);
+        load_popup();
     }, []);
 
     return (
@@ -150,19 +149,23 @@ function Screen() {
             ) : (
                 <>
                     <SideBar className={isHome ? styles["sidebar-show"] : ""}/>
-
                     <div className={styles["window-content"]} className={stylesForPopup['body']} id={SlotID.AppBody}>
-                        <button id="minimizedWindow">展开弹窗</button>
-                        <div id="draggableWindow" className={stylesForPopup["hidden"]}>
-                            <div className={stylesForPopup["windowHeader"]}>
+
+
+                        <button id="minimizedWindow" onClick={showPopup}>展开弹窗</button>
+
+                        <div id="draggableWindow" className={stylesForPopup["draggableWindow"]}>
+                            <div className={stylesForPopup["windowHeader"]} id='windowHeader'>
                                 <span>弹窗标题</span>
-                                <button id="closeWindow">×</button>
+                                <button id="closeWindow" onClick={hidePopup}>×</button>
                             </div>
                             <div className={stylesForPopup["windowContent"]}>
                                 这是弹窗内容
                             </div>
                             <div className={stylesForPopup["resizeHandle"]}></div>
                         </div>
+
+
                         <Routes>
                             <Route path={Path.Home} element={<Chat/>}/>
                             <Route path={Path.NewChat} element={<NewChat/>}/>

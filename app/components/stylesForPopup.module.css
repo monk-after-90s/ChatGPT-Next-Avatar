@@ -4,10 +4,20 @@
 }
 
 .hidden {
-    display: none;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: 150px;
+    border: 1px solid #000;
+    background-color: #fff;
+    z-index: 1000;
+    overflow: hidden;
+    resize: both;
 }
 
-#draggableWindow {
+.draggableWindow {
+    display: none;
     position: absolute;
     top: 50px;
     left: 50px;
