@@ -1,5 +1,4 @@
 "use client";
-
 require("../polyfill");
 
 import {useState, useEffect} from "react";
@@ -150,17 +149,26 @@ function Screen() {
                 <>
                     <SideBar className={isHome ? styles["sidebar-show"] : ""}/>
                     <div className={styles["window-content"]} className={stylesForPopup['body']} id={SlotID.AppBody}>
-
-
-                        <button id="minimizedWindow" onClick={showPopup}>展开弹窗</button>
-
+                        <button id="minimizedWindow" onClick={showPopup}>展示数字人</button>
                         <div id="draggableWindow" className={stylesForPopup["draggableWindow"]}>
                             <div className={stylesForPopup["windowHeader"]} id='windowHeader'>
-                                <span>弹窗标题</span>
+                                <span>数字人</span>
                                 <button id="closeWindow" onClick={hidePopup}>×</button>
                             </div>
                             <div className={stylesForPopup["windowContent"]}>
-                                这是弹窗内容
+                                {/*数字人展示区*/}
+                                <div className="content-wrapper">
+                                    <div className="video">
+                                        <img id="video"
+                                             src="https://media.9game.cn/gamebase/ieu-gdc-pre-process/images/20220808/1/17/1e8f92d5222a3d6a0ad0c9148b670393.jpg"
+                                             alt="等待数字人中...">
+                                        </img>
+                                    </div>
+                                    <label htmlFor="digman-select">选择一个数字人:</label>
+                                    <select id="digman-select" name="digman">
+                                    </select>
+                                </div>
+
                             </div>
                             <div className={stylesForPopup["resizeHandle"]}></div>
                         </div>

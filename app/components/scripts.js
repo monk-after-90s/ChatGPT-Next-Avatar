@@ -18,6 +18,27 @@ export function load_popup() {
             document.getElementById('draggableWindow').style.top = (e.clientY - offsetY) + "px";
         }
     });
+
+
+    //select下拉
+    let BASE_URL = "http://region-9.autodl.pro:32808";
+
+    fetch(`${BASE_URL}/digital_humans`)
+        .then(response => response.json())
+        .then(data => {
+            const selectElement = document.getElementById('digman-select');
+            data.forEach(item => {
+                const optionElement = document.createElement('option');
+                optionElement.text = item.name;
+                optionElement.value = item.value;
+                selectElement.add(optionElement);
+            });
+            selectElement.addEventListener("change", (event) => {
+                // 获取被选定的option元素
+                // let selectedOption = event.target;
+                // prepare_show(selectedOption.value);
+            });
+        });
 }
 
 export function showPopup() {
