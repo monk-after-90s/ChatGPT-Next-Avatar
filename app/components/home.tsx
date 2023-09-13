@@ -148,7 +148,7 @@ function Screen() {
             ) : (
                 <>
                     <SideBar className={isHome ? styles["sidebar-show"] : ""}/>
-                    <div className={styles["window-content"]} className={stylesForPopup['body']} id={SlotID.AppBody}>
+                    <div id={SlotID.AppBody} className={stylesForPopup['popup-content']}>
                         <button id="minimizedWindow" onClick={showPopup}>展示数字人</button>
                         <div id="draggableWindow" className={stylesForPopup["draggableWindow"]}>
                             <div className={stylesForPopup["windowHeader"]} id='windowHeader'>
