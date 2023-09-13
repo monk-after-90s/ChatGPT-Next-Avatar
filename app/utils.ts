@@ -97,6 +97,7 @@ export function useWindowSize() {
 }
 
 export const MOBILE_MAX_WIDTH = 600;
+
 export function useMobileScreen() {
   const { width } = useWindowSize();
 
@@ -172,4 +173,16 @@ export function autoGrowTextArea(dom: HTMLTextAreaElement) {
 
 export function getCSSVar(varName: string) {
   return getComputedStyle(document.body).getPropertyValue(varName).trim();
+}
+
+export function haveCommonCharacters(str1: string, str2: string): boolean {
+  const set1 = new Set(str1);
+  const set2 = new Set(str2);
+
+  for (let char of set1) {
+    if (set2.has(char)) {
+      return true;
+    }
+  }
+  return false;
 }
