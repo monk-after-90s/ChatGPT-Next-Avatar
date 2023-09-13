@@ -1,1 +1,0 @@
-export let base_url = "http://region-9.autodl.pro:32808";

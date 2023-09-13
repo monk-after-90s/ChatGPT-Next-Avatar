@@ -1,5 +1,4 @@
 import { haveCommonCharacters } from "@/app/utils";
-import { base_url } from "@/app/api/digital-man/base_url";
 import { AsyncQueue } from "@/app/utils/async_queue";
 import { waitForAudioEvent } from "@/app/utils/wait_for_audio_event";
 // 响应的文本分段缓存
@@ -78,7 +77,10 @@ function feed2digman(text: string) {
     if (selectedOption) {
       const params = new URLSearchParams();
       params.append("digital_man", selectedOption.value);
-      fetch(`${base_url}/avSustainStream/establish_stream?` + params.toString())
+      fetch(
+        `${process.env.DIGMAN_BASEURL}/avSustainStream/establish_stream?` +
+          params.toString(),
+      )
         .then((response) => response.json())
         .then(async (streamId) => {
           digmanStreamId = streamId;
@@ -86,7 +88,7 @@ function feed2digman(text: string) {
           let encoded_stream_id = encodeURIComponent(streamId);
           //视频流播放器
           getVd().style.display = "block";
-          getVd().src = `${base_url}/avSustainStream/listen_video_stream?stream_id=${encoded_stream_id}`;
+          getVd().src = `${process.env.DIGMAN_BASEURL}/avSustainStream/listen_video_stream?stream_id=${encoded_stream_id}`;
           //消费文本，进行数字人合成
           startConsumeText(encoded_stream_id);
         });
@@ -112,7 +114,7 @@ async function startConsumeText(encoded_stream_id: string) {
       ad.addEventListener("ended", () => {
         console.log(`Text:${text} played.`);
       });
-      ad.src = `${base_url}/avSustainStream/talk?stream_id=${encoded_stream_id}&speech_content=${text}`;
+      ad.src = `${process.env.DIGMAN_BASEURL}/avSustainStream/talk?stream_id=${encoded_stream_id}&speech_content=${text}`;
       ad.play();
       //确保顺序后，可以及时切换的时机
       await waitForAudioEvent(ad, "durationchange");
@@ -128,7 +130,8 @@ async function startConsumeText(encoded_stream_id: string) {
   const params = new URLSearchParams();
   params.append("stream_id", encoded_stream_id);
   const res = await fetch(
-    `${base_url}/avSustainStream/close_stream?` + params.toString(),
+    `${process.env.DIGMAN_BASEURL}/avSustainStream/close_stream?` +
+      params.toString(),
   );
   console.log(
     `Close stream:${decodeURIComponent(
