@@ -11,7 +11,7 @@ Linux)
     fi
   else
     if [[ "$(cat /etc/*-release | grep '^ID=')" =~ ^ID=\"(centos|debian|arch|ubuntu)\"$ ]]; then
-      echo
+      echo "Running on Linux."
     else
       echo "Unsupported Linux distribution."
       exit 1
