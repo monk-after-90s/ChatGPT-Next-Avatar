@@ -5,7 +5,7 @@ import {
     REQUEST_TIMEOUT_MS,
 } from "@/app/constant";
 import {useAccessStore, useAppConfig, useChatStore} from "@/app/store";
-
+import {consumedelta} from "../../api/digital-man/feed-text2digital-man"
 import {ChatOptions, getHeaders, LLMApi, LLMModel, LLMUsage} from "../api";
 import Locale from "../../locales";
 import {
@@ -151,6 +151,9 @@ export class ChatGPTApi implements LLMApi {
                     },
                     onmessage(msg) {
                         if (msg.data === "[DONE]" || finished) {
+                            if (options.messages[options.messages.length - 1].role == 'user') {
+                                consumedelta("[DONE]");
+                            }
                             return finish();
                         }
                         const text = msg.data;
@@ -160,7 +163,9 @@ export class ChatGPTApi implements LLMApi {
                             if (delta) {
                                 responseText += delta;
                                 options.onUpdate?.(responseText, delta);
-
+                                if (options.messages[options.messages.length - 1].role == 'user') {
+                                    consumedelta(delta);
+                                }
                             }
                         } catch (e) {
                             console.error("[Request] parse error", text, msg);
