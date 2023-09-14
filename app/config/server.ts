@@ -13,6 +13,7 @@ declare global {
       BUILD_MODE?: "standalone" | "export";
       BUILD_APP?: string; // is building desktop app
       HIDE_BALANCE_QUERY?: string; // allow user to query balance or not
+      DIGMAN_BASEURL: string; //Digital Man API base URL
     }
   }
 }
