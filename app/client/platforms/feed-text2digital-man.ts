@@ -27,8 +27,15 @@ function getVd() {
  * */
 export function consumedelta(delta: string) {
   //弹窗关闭则不播放数字人
-  if (document.getElementById("draggableWindow")?.style.display === "none") {
-    delta = "[DONE]";
+  if (
+    document.getElementById("draggableWindow")?.style.display === "none" ||
+    document.getElementById("draggableWindow")?.style.display === ""
+  ) {
+    if (digmanStreamId) {
+      delta = "[DONE]";
+    } else {
+      return;
+    }
   }
   //当前这段字符串没有分割符
   if (!haveCommonCharacters(delta, separators)) {
