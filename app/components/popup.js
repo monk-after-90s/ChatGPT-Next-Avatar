@@ -26,9 +26,8 @@ export function load_popup() {
   });
 
   //select下拉
-  let BASE_URL = "http://region-9.autodl.pro:32808"; //fixme
 
-  fetch(`${BASE_URL}/digital_humans`)
+  fetch(`/api/digital-man/digital_humans`)
     .then((response) => response.json())
     .then((data) => {
       const selectElement = document.getElementById("digman-select");
