@@ -70,4 +70,4 @@ read -p "Enter DIGMAN_BASEURL: " DIGMAN_BASEURL
 
 # Build and run the project using the environment variables
 OPENAI_API_KEY=$OPENAI_API_KEY CODE=$CODE PORT=$PORT DIGMAN_BASEURL=$DIGMAN_BASEURL BASE_URL=$BASE_URL yarn build
-nohup OPENAI_API_KEY="$OPENAI_API_KEY" CODE="$CODE" PORT="$PORT" DIGMAN_BASEURL="$DIGMAN_BASEURL" BASE_URL="$BASE_URL" yarn start &
+yarn start
