@@ -155,7 +155,7 @@ function Screen() {
                                 <span>数字人</span>
                                 <button id="closeWindow" onClick={hidePopup}>×</button>
                             </div>
-                            <div className={stylesForPopup["windowContent"]}>
+                            <div className={stylesForPopup["popup-content"]}>
                                 {/*数字人展示区*/}
                                 <div className="content-wrapper">
                                     <div className="video">

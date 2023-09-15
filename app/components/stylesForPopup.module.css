@@ -1,6 +1,10 @@
 .popup-content {
     font-family: Arial, sans-serif;
     position: relative;
+    width: var(--window-content-width);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .hidden {
