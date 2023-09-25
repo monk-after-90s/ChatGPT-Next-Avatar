@@ -31,16 +31,16 @@ esac
 if ! command -v node >/dev/null || ! command -v git >/dev/null || ! command -v yarn >/dev/null; then
   case "$(uname -s)" in
   Linux)
-    if [[ "$(cat /etc/*-release | grep '^ID=')" = 'ID="ubuntu"' ]]; then
+    if [[ "$(cat /etc/*-release | grep '^ID=' | grep -i ubuntu)" ]]; then
       sudo apt-get update
       sudo apt-get -y install nodejs git yarn
-    elif [[ "$(cat /etc/*-release | grep '^ID=')" = 'ID="debian"' ]]; then
+    elif [[ "$(cat /etc/*-release | grep '^ID=' | grep -i debian)" ]]; then
       sudo apt-get update
       sudo apt-get -y install nodejs git yarn
-    elif [[ "$(cat /etc/*-release | grep '^ID=')" = 'ID="centos"' ]]; then
+    elif [[ "$(cat /etc/*-release | grep '^ID=' | grep -i centos)" ]]; then
       sudo yum -y install epel-release
       sudo yum -y install nodejs git yarn
-    elif [[ "$(cat /etc/*-release | grep '^ID=')" = 'ID="arch"' ]]; then
+    elif [[ "$(cat /etc/*-release | grep '^ID=' | grep -i arch)" ]]; then
       sudo pacman -Syu -y
       sudo pacman -S -y nodejs git yarn
     else
