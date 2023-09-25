@@ -3,7 +3,7 @@
 
 <h1 align="center">ChatGPT Next Web</h1>
 
-[English](./README.md) / [简体中文](./README_CN.md) / 日本語
+[English](./ChatGPT-Next-Web-README.md) / [简体中文](./README_CN.md) / 日本語
 
 ワンクリックで、クロスプラットフォーム ChatGPT ウェブ UI が表示されます。
 
