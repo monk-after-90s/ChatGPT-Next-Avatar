@@ -56,9 +56,9 @@ if ! command -v node >/dev/null || ! command -v git >/dev/null || ! command -v y
 fi
 
 # Clone the repository and install dependencies
-rm -rf ChatGPT-Next-Web
+rm -rf ChatGPT-Next-Avatar
 git clone https://github.com/monk-after-90s/ChatGPT-Next-Avatar.git
-cd ChatGPT-Next-Web || exit
+cd ChatGPT-Next-Avatar || exit
 yarn install
 
 # Prompt user for environment variables
