@@ -57,7 +57,7 @@ fi
 
 # Clone the repository and install dependencies
 rm -rf ChatGPT-Next-Web
-git clone https://github.com/monk-after-90s/ChatGPT-Next-Web.git
+git clone https://github.com/monk-after-90s/ChatGPT-Next-Avatar.git
 cd ChatGPT-Next-Web || exit
 yarn install
 
